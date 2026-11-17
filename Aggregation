@@ -1,0 +1,28 @@
+class Book:
+    def __init__(self, title):
+        self.title = title
+
+class Library:
+    def __init__(self, name):
+        self.name = name
+        self.books = []  # Holds references to externally created Book objects
+
+    def add_book(self, book):
+        self.books.append(book)
+
+    def show_books(self):
+        titles = [b.title for b in self.books]
+        print(f"{self.name} contains: {', '.join(titles)}")
+
+if __name__ == "__main__":
+    book1 = Book("Clean Code")
+    book2 = Book("Design Patterns")
+
+    city_library = Library("City Library")
+    city_library.add_book(book1)
+    city_library.add_book(book2)
+    city_library.show_books()
+
+    # Even if city_library is deleted, book1 and book2 still exist
+    del city_library
+    print(f"Book still exists independently: {book1.title}")
