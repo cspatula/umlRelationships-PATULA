@@ -1,0 +1,14 @@
+from abc import ABC, abstractmethod
+
+class PaymentProcessor(ABC):  # Interface
+    @abstractmethod
+    def pay(self, amount):
+        pass
+
+class CreditCardPayment(PaymentProcessor):  # Realizes the interface
+    def pay(self, amount):
+        print(f"Processed ${amount:.2f} via Credit Card.")
+
+if __name__ == "__main__":
+    payment = CreditCardPayment()
+    payment.pay(49.99)
