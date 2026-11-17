@@ -1,0 +1,15 @@
+class Teacher:
+    def __init__(self, name):
+        self.name = name
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+    def learn_from(self, teacher):
+        print(f"{self.name} is learning from Prof. {teacher.name}.")
+
+if __name__ == "__main__":
+    prof = Teacher("Santos")
+    student = Student("Alex")
+    student.learn_from(prof)
