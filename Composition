@@ -1,0 +1,17 @@
+class Room:
+    def __init__(self, room_type):
+        self.room_type = room_type
+
+class House:
+    def __init__(self, address):
+        self.address = address
+        # Rooms are instantiated inside House; they do not exist outside of it
+        self.rooms = [Room("Living Room"), Room("Kitchen"), Room("Bedroom")]
+
+    def describe(self):
+        room_names = [r.room_type for r in self.rooms]
+        print(f"House at {self.address} has: {', '.join(room_names)}")
+
+if __name__ == "__main__":
+    my_house = House("123 Maple Street")
+    my_house.describe()
